@@ -251,9 +251,9 @@ class DrawerCustomPaint extends CustomPainter {
     Path path = Path();
     path.moveTo(0, 0);
     path.lineTo(size.width, 0);
-    path.lineTo(size.width, size.height);
-    // path.quadraticBezierTo(
-    //   generatePointX(size.width), offset.dy,size.width, size.height);
+    // path.lineTo(size.width, size.height);
+    path.quadraticBezierTo(
+      generatePointX(size.width), offset.dy,size.width, size.height);
     path.lineTo(0, size.height);
     path.close();
     canvas.drawPath(path, paint);
