@@ -4,7 +4,7 @@ import 'AppConstant.dart';
 
 class SPageDangxuat extends StatelessWidget {
   const SPageDangxuat({super.key});
-  static int idpage = 4;
+  static int idpage = 5;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

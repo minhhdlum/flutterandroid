@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import '../providers/mainviewmodel.dart';
 import 'AppConstant.dart';
 
-class SPageDSLop extends StatelessWidget {
-  const SPageDSLop({super.key});
+class SubPageDiemdanh extends StatelessWidget {
+  const SubPageDiemdanh({super.key});
   static int idpage = 2;
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class SPageDSLop extends StatelessWidget {
       child: Container(
           color: AppConstant.backgroundColor,
           child: Center(
-            child: Text("DS Lớp"),
+            child: Text("Điểm danh"),
           )),
     );
   }

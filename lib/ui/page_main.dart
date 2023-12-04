@@ -10,7 +10,7 @@ import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
 
 import 'page_register.dart';
-import 'suppageandhelp.dart';
+import 'Subpage_dshp.dart';
 import 'suppagedangxuat.dart';
 import 'suppageprofile.dart';
 import 'suppagetrangchu.dart';
@@ -22,6 +22,7 @@ class PageMain extends StatelessWidget {
   final List<String> menutitle = [
     "Trang chủ",
     "Your profile",
+    "Điểm danh",
     "Settings",
     "Trợ giúp & hỗ trợ",
     "Đăng xuất"
@@ -39,8 +40,8 @@ class PageMain extends StatelessWidget {
     } 
     else if (viewmodel.activemenu == SPageDSLop.idpage) {
       body = SPageDSLop();
-    }else if (viewmodel.activemenu == SPagesupandhelp.idpage) {
-      body = SPagesupandhelp();
+    }else if (viewmodel.activemenu == SubPageDSHP.idpage) {
+      body = SubPageDSHP();
     } else if (viewmodel.activemenu == SPageDangxuat.idpage) {
       GestureDetector(
           onTap: () =>

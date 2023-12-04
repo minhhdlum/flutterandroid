@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import '../providers/mainviewmodel.dart';
 import 'AppConstant.dart';
 
-class SPagesupandhelp extends StatelessWidget {
-  const SPagesupandhelp({super.key});
-  static int idpage = 3;
+class SubPageDSHP extends StatelessWidget {
+  const SubPageDSHP({super.key});
+  static int idpage = 4;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -13,7 +13,7 @@ class SPagesupandhelp extends StatelessWidget {
       child: Container(
           color: AppConstant.backgroundColor,
           child: Center(
-            child: Text("Trợ giúp & hỗ trợ",style: TextStyle(fontSize: 25),),
+            child: Text("DS Học Phần",style: TextStyle(fontSize: 25),),
           )),
     );
   }
