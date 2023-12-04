@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-
 import '../providers/mainviewmodel.dart';
 import 'AppConstant.dart';
 
-class SPageTrangchu extends StatelessWidget {
-  const SPageTrangchu({super.key});
-  static int idpage = 0;
+class SPageDSLop extends StatelessWidget {
+  const SPageDSLop({super.key});
+  static int idpage = 2;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -13,7 +12,7 @@ class SPageTrangchu extends StatelessWidget {
       child: Container(
           color: AppConstant.backgroundColor,
           child: Center(
-            child: Text("Trang chủ",style: TextStyle(fontSize: 20),),
+            child: Text("DS Lớp"),
           )),
     );
   }

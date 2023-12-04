@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import '../providers/mainviewmodel.dart';
 import 'AppConstant.dart';
 
-class SPageSettings extends StatelessWidget {
-  const SPageSettings({super.key});
-  static int idpage = 2;
+class SubPageDiemdanh extends StatelessWidget {
+  const SubPageDiemdanh({super.key});
+  static int idpage = 4;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -12,7 +12,7 @@ class SPageSettings extends StatelessWidget {
       child: Container(
           color: AppConstant.backgroundColor,
           child: Center(
-            child: Text("Settings"),
+            child: Text("Điểm danh"),
           )),
     );
   }

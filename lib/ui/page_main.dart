@@ -3,6 +3,8 @@ import 'package:connection/providers/mainviewmodel.dart';
 import 'package:connection/providers/menubarviewmodel.dart';
 import 'package:connection/ui/AppConstant.dart';
 import 'package:connection/ui/page_login.dart';
+import 'package:connection/ui/suppagediemdanh.dart';
+import 'package:connection/ui/suppagedslop.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
@@ -11,8 +13,8 @@ import 'page_register.dart';
 import 'suppageandhelp.dart';
 import 'suppagedangxuat.dart';
 import 'suppageprofile.dart';
-import 'suppagesetting.dart';
 import 'suppagetrangchu.dart';
+import 'suppagedslop.dart';
 
 class PageMain extends StatelessWidget {
   PageMain({super.key});
@@ -32,9 +34,12 @@ class PageMain extends StatelessWidget {
     Widget body = SPageTrangchu();
     if (viewmodel.activemenu == SPageYourprofile.idpage) {
       body = SPageYourprofile();
-    } else if (viewmodel.activemenu == SPageSettings.idpage) {
-      body = SPageSettings();
-    } else if (viewmodel.activemenu == SPagesupandhelp.idpage) {
+    }else if (viewmodel.activemenu == SubPageDiemdanh.idpage) {
+      body = SubPageDiemdanh();
+    } 
+    else if (viewmodel.activemenu == SPageDSLop.idpage) {
+      body = SPageDSLop();
+    }else if (viewmodel.activemenu == SPagesupandhelp.idpage) {
       body = SPagesupandhelp();
     } else if (viewmodel.activemenu == SPageDangxuat.idpage) {
       GestureDetector(

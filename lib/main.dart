@@ -57,7 +57,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         textTheme: const TextTheme(bodyMedium: TextStyle(fontSize: 16)),
         colorScheme:
-            ColorScheme.light(primary: Color.fromRGBO(233, 112, 173, 1)),
+            ColorScheme.light(primary: Color.fromRGBO(233, 112, 120, 1)),
         useMaterial3: true,
       ),
       home: PageLogin(),
