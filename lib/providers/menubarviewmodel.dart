@@ -5,5 +5,6 @@ class MenuBarViewModel with ChangeNotifier{
   void setOffset(Offset offset){
     this.offset = offset;
     notifyListeners();
+    
   }
 }

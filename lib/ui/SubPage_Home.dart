@@ -13,7 +13,7 @@ class SPageTrangchu extends StatelessWidget {
       child: Container(
           color: AppConstant.backgroundColor,
           child: Center(
-            child: Text("Trang chủ",style: TextStyle(fontSize: 20),),
+            child: Text("Trang chủ",style: TextStyle(fontSize: 18),),
           )),
     );
   }

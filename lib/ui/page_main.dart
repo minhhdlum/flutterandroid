@@ -3,18 +3,18 @@ import 'package:connection/providers/mainviewmodel.dart';
 import 'package:connection/providers/menubarviewmodel.dart';
 import 'package:connection/ui/AppConstant.dart';
 import 'package:connection/ui/page_login.dart';
-import 'package:connection/ui/suppagediemdanh.dart';
-import 'package:connection/ui/suppagedslop.dart';
+import 'package:connection/ui/SubPage_Diemdanh.dart';
+import 'package:connection/ui/SubPage_dslop.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
 
 import 'page_register.dart';
-import 'Subpage_dshp.dart';
-import 'suppagedangxuat.dart';
-import 'suppageprofile.dart';
-import 'suppagetrangchu.dart';
-import 'suppagedslop.dart';
+import 'SubPage_dshp.dart';
+import 'SubPage_Logout.dart';
+import 'SubPage_Profile.dart';
+import 'SubPage_Home.dart';
+import 'SubPage_dslop.dart';
 
 class PageMain extends StatelessWidget {
   PageMain({super.key});
@@ -23,8 +23,8 @@ class PageMain extends StatelessWidget {
     "Trang chủ",
     "Your profile",
     "Điểm danh",
-    "Settings",
-    "Trợ giúp & hỗ trợ",
+    "DS Lớp",
+    "DS Học Phần",
     "Đăng xuất"
   ];
   final menuBar = menuitemlist();
@@ -56,7 +56,7 @@ class PageMain extends StatelessWidget {
           child: const Icon(
             size: 40,
             Icons.menu,
-            color: Color.fromARGB(255, 255, 255, 255),
+            color: Color.fromARGB(255, 255, 252, 252),
           ),
         ),
       ),
@@ -65,7 +65,6 @@ class PageMain extends StatelessWidget {
         children: [
           Consumer<MenuBarViewModel>(builder: (context, menubarmodel, child) {
             return Container(
-              color: Color.fromARGB(255, 176, 228, 176),
               child: Center(
                 child: body,
               ),
@@ -83,7 +82,7 @@ class PageMain extends StatelessWidget {
                         viewmodel.closeMenu();
                       },
                       child: Stack(
-                        children: [CustomMenuSideBar(size: size), menuBar],
+                        children: [CustomMenuSideBar(size: size), menuBar,],
                       ));
                 })
               : Container(),

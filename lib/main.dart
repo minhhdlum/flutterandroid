@@ -60,7 +60,7 @@ class MyApp extends StatelessWidget {
             ColorScheme.light(primary: Color.fromRGBO(233, 112, 120, 1)),
         useMaterial3: true,
       ),
-      home: PageLogin(),
+      home: PageMain(),
     );
   }
 }

@@ -23,5 +23,5 @@ class AppConstant {
       color: const Color.fromARGB(255, 101, 209, 104),
       fontWeight: FontWeight.bold);
   static Color mainColor = Color.fromARGB(255, 247, 207, 231);
-  static Color backgroundColor = Color.fromARGB(255, 250, 250, 250);
+  static Color backgroundColor = Color.fromARGB(255, 164, 218, 253);
 }
