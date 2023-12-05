@@ -21,11 +21,11 @@ class PageMain extends StatelessWidget {
   static String routename = '/main';
   final List<String> menutitle = [
     "Trang chủ",
-    "Your profile",
+    "Trang cá nhân",
     "Điểm danh",
     "DS Lớp",
     "DS Học Phần",
-    "Đăng xuất"
+    "Đăng xuất",
   ];
   final menuBar = menuitemlist();
   @override
