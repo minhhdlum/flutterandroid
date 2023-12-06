@@ -1,4 +1,5 @@
 import 'package:avatar_glow/avatar_glow.dart';
+import 'package:connection/models/profile.dart';
 import 'package:connection/providers/mainviewmodel.dart';
 import 'package:connection/providers/menubarviewmodel.dart';
 import 'package:connection/ui/AppConstant.dart';
@@ -32,6 +33,11 @@ class PageMain extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final viewmodel = Provider.of<MainViewModel>(context);
+    Profile profile =Profile();
+    if(profile.token == "")
+    {
+      return PageLogin();
+    }
     Widget body = SPageTrangchu();
     if (viewmodel.activemenu == SPageYourprofile.idpage) {
       body = SPageYourprofile();
