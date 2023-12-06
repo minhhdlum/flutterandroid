@@ -1,5 +1,10 @@
 import 'package:connection/repositories/login_repositories.dart';
+import 'package:connection/repositories/student_repository.dart';
+import 'package:connection/repositories/user_repository.dart';
 import 'package:flutter/material.dart';
+
+import '../models/student.dart';
+import '../models/user.dart';
 
 class LoginViewModel with ChangeNotifier {
   String errorMessage = "";
@@ -14,6 +19,12 @@ class LoginViewModel with ChangeNotifier {
         status = 2;
         errorMessage = "Tên đăng nhập hoặc mật khẩu không đúng!";
       } else {
+        
+        //dang nhap thanh cong, lay thong tin user student
+        var student =await StudentRepository().getStudentInfo();
+        profile.student=Student.fromStudent(student);
+        var user =await UserRepository().getUserInfo();
+        profile.user=User.fromUser(user);
         status = 3;
       }
       notifyListeners();

@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
 
+import 'page_dklop.dart';
 import 'page_register.dart';
 import 'SubPage_dshp.dart';
 import 'SubPage_Logout.dart';
@@ -37,6 +38,10 @@ class PageMain extends StatelessWidget {
     if(profile.token == "")
     {
       return PageLogin();
+    }
+    if(profile.student.mssv =="")
+    {
+      return PageDangkylop();
     }
     Widget body = SPageTrangchu();
     if (viewmodel.activemenu == SPageYourprofile.idpage) {
