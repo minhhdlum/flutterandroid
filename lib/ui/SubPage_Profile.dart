@@ -13,7 +13,7 @@ class SPageYourprofile extends StatelessWidget {
       child: Container(
           color: AppConstant.backgroundColor,
           child: Center(
-            child: Text("Your Profile"),
+            child: Text("Trang cá nhân"),
           )),
     );
   }
