@@ -4,8 +4,10 @@ import 'package:google_fonts/google_fonts.dart';
 class AppConstant {
   static TextStyle textfancyheader = GoogleFonts.merriweather(
       fontSize: 40, color: Color.fromARGB(149, 83, 81, 81));
+ static TextStyle textfancyheader2 = GoogleFonts.merriweather(
+      fontSize: 25, color: Color.fromARGB(147, 212, 25, 25),fontWeight: FontWeight.w900);
   static TextStyle text_error = const TextStyle(
-      fontSize: 16, color: Colors.red, fontStyle: FontStyle.italic);
+      fontSize: 20, color: Colors.red, fontStyle: FontStyle.italic);
   static TextStyle textlink = const TextStyle(
       color: Color.fromARGB(255, 179, 140, 229),
       fontSize: 20,

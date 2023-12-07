@@ -19,6 +19,25 @@ class ApiService {
   void initialize() {
     _dio = Dio(BaseOptions(responseType: ResponseType.json));
   }
+  Future<Response?> getDsLop() async {
+    Map<String, String> headers = {
+      'Content-type': "application/json; charset=UTF-8",
+      'Authorization': 'Bearer ' + Profile().token,
+      'Accept': 'application/json',
+    };
+    String apiUrl = "https://chocaycanh.club/api/lophoc/ds";
+    try {
+      // ignore: non_constant_identifier_names
+      final Response =
+          await _dio.get(apiUrl, options: Options(headers: headers));
+      if (Response.statusCode == 200) {
+        return Response;
+      }
+    } catch (e) {
+      print(e);
+    }
+    return null;
+  }
  Future<Response?> getUserInfo() async {
     Map<String, String> headers = {
       'Content-type': "application/json; charset=UTF-8",
