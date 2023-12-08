@@ -1,3 +1,4 @@
+import 'package:connection/providers/profileviewmodel.dart';
 import 'package:connection/ui/page_dklop.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -36,6 +37,8 @@ void main() {
     ),
     ChangeNotifierProvider<MenuBarViewModel>(
       create: (context) => MenuBarViewModel(),
+    ),ChangeNotifierProvider<ProfileViewModel>(
+      create: (context) => ProfileViewModel(),
     ),
   ], child: const MyApp()));
 }

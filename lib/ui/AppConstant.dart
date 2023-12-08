@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 
 class AppConstant {
   static TextStyle textfancyheader = GoogleFonts.merriweather(
@@ -24,6 +25,25 @@ class AppConstant {
       fontSize: 30,
       color: const Color.fromARGB(255, 101, 209, 104),
       fontWeight: FontWeight.bold);
-  static Color mainColor = Color.fromARGB(255, 247, 207, 231);
+  static Color mainColor = Color.fromARGB(255, 241, 117, 192);
   static Color backgroundColor = Color.fromARGB(255, 164, 218, 253);
+   static TextStyle textbodyw = const TextStyle(
+      color: Color.fromARGB(255, 255, 255, 255),
+      fontSize: 16,
+      fontWeight: FontWeight.bold);
+       static TextStyle textbodyfocusw = const TextStyle(
+      color: Color.fromARGB(255, 255, 255, 255),
+      fontSize: 20,
+      fontWeight: FontWeight.bold);
+      static bool isDate(String str){
+        try{
+          var inputFormat=DateFormat('dd/MM/yyyy');
+          var date1=inputFormat.parseStrict(str);
+          return true;
+        }
+        catch(e)
+        {
+          return false;
+        }
+      }
 }
