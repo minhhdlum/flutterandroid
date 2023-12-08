@@ -19,6 +19,73 @@ class ApiService {
   void initialize() {
     _dio = Dio(BaseOptions(responseType: ResponseType.json));
   }
+  Future<Response?> dangkyLop() async {
+    Profile profile = Profile();
+    Map<String, String> headers = {
+      'Content-type': "application/json; charset=UTF-8",
+      'Authorization': 'Bearer ' + Profile().token,
+      'Accept': 'application/json',
+    };
+    Map<String,dynamic>param={
+      "id":profile.student.idlop,
+      "mssv":profile.student.mssv,
+    };
+      print(param);
+    String apiUrl = "https://chocaycanh.club/api/lophoc/dangky";
+    try {
+      // ignore: non_constant_identifier_names
+      final Response =
+          await _dio.post(apiUrl, options: Options(headers: headers),data: jsonEncode(param));
+      if (Response.statusCode == 200) {
+        return Response;
+      }
+    } catch (e) {
+      print(e);
+    }
+    return null;
+  }
+
+  Future<Response?> updateProfile() async {
+    Profile profile = Profile();
+    Map<String, String> headers = {
+      'Content-type': "application/json; charset=UTF-8",
+      'Authorization': 'Bearer ' + Profile().token,
+      'Accept': 'application/json',
+    };
+    String birthday ="";
+    Map<String,dynamic>param={
+      "first_name":profile.user.first_name,
+      "last_name":'',
+      "phone":profile.user.phone,
+      "address":profile.user.address??"",
+      "provinceid":profile.user.provinceid,
+      "provincename":profile.user.provincename??"",
+      "districid":profile.user.districtid,
+      "districtname":profile.user.districtname??"",
+      "wardid":profile.user.wardid,
+      "wardname":profile.user.wardname??"",
+      "street":profile.user.address??"",
+      'birthday':birthday,
+    };
+    print(param);
+    String apiUrl = "https://chocaycanh.club/api/me/details";
+    try {
+      // ignore: non_constant_identifier_names
+      final Response =
+          await _dio.patch(apiUrl, options: Options(headers: headers),data: jsonEncode(param));
+      if (Response.statusCode == 200) {
+        return Response;
+      }
+    } catch (e) {
+     if(e is DioException){
+      print('Error: $e');
+      print(e.message);
+      print(e.error);
+      print(e.response);
+     }
+    }
+    return null;
+  }
   Future<Response?> getDsLop() async {
     Map<String, String> headers = {
       'Content-type': "application/json; charset=UTF-8",
