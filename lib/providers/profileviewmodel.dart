@@ -5,4 +5,12 @@ class ProfileViewModel with ChangeNotifier{
   void updatescreen(){
     notifyListeners();
   }
+  void displaySpinner(){
+    status=1;
+    notifyListeners();
+  }
+  void hideSpinner(){
+    status=0;
+    notifyListeners();
+  }
 }

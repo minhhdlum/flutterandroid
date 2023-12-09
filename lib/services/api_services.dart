@@ -3,7 +3,7 @@ import 'dart:io';
 
 import 'package:connection/models/profile.dart';
 import 'package:dio/dio.dart';
-
+import 'package:http/http.dart' as http;
 class ApiService {
   static final ApiService _instance = ApiService._internal();
   ApiService._internal();
@@ -43,8 +43,70 @@ class ApiService {
       print(e);
     }
     return null;
+  } 
+  Future <List<dynamic>?> getListWard(int id) async{
+    Profile profile = Profile();
+    String api_url="https://chocaycanh.club/api/getjsxa?id="+id.toString();
+    Map<String, String> headers = {
+      'Content-type': "application/json; charset=UTF-8",
+      'Authorization': 'Bearer ' + Profile().token,
+      'Accept': 'application/json',
+    };
+    var client=http.Client();
+    try
+    {
+      var response = await client.get(Uri.parse(api_url),headers: headers);
+      if (response.statusCode==200){
+        var data=jsonDecode(response.body);
+        return data;
+      }
+    }
+    catch(e){
+      return null;
+    }
   }
-
+  Future <List<dynamic>?> getListDistric(int id) async{
+    Profile profile = Profile();
+    String api_url="https://chocaycanh.club/api/getjshuyen?id="+id.toString();
+    Map<String, String> headers = {
+      'Content-type': "application/json; charset=UTF-8",
+      'Authorization': 'Bearer ' + Profile().token,
+      'Accept': 'application/json',
+    };
+    var client=http.Client();
+    try
+    {
+      var response = await client.get(Uri.parse(api_url),headers: headers);
+      if (response.statusCode==200){
+        var data=jsonDecode(response.body);
+        return data;
+      }
+    }
+    catch(e){
+      return null;
+    }
+  }
+  Future <List<dynamic>?> getListCity() async{
+    Profile profile = Profile();
+    String api_url="https://chocaycanh.club/api/getjstinh";
+    Map<String, String> headers = {
+      'Content-type': "application/json; charset=UTF-8",
+      'Authorization': 'Bearer ' + Profile().token,
+      'Accept': 'application/json',
+    };
+    var client=http.Client();
+    try
+    {
+      var response = await client.get(Uri.parse(api_url),headers: headers);
+      if (response.statusCode==200){
+        var data=jsonDecode(response.body);
+        return data;
+      }
+    }
+    catch(e){
+      return null;
+    }
+  }
   Future<Response?> updateProfile() async {
     Profile profile = Profile();
     Map<String, String> headers = {

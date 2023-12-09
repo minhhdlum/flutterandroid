@@ -2,6 +2,7 @@ import 'package:connection/providers/profileviewmodel.dart';
 import 'package:connection/ui/page_dklop.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'providers/diachimodel.dart';
 import 'ui/page_forgot.dart';
 import 'ui/page_login.dart';
 import 'ui/page_main.dart';
@@ -39,6 +40,9 @@ void main() {
       create: (context) => MenuBarViewModel(),
     ),ChangeNotifierProvider<ProfileViewModel>(
       create: (context) => ProfileViewModel(),
+    ),
+    ChangeNotifierProvider<DiachiModel>(
+      create: (context) => DiachiModel(),
     ),
   ], child: const MyApp()));
 }

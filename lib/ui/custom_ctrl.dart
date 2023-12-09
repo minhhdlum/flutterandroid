@@ -1,3 +1,4 @@
+import 'package:connection/models/place.dart';
 import 'package:flutter/material.dart';
 
 import '../models/class.dart';
@@ -304,6 +305,101 @@ class _CustomInputDropDownState extends State<CustomInputDropDown> {
         Divider(
           thickness: 1,
         )
+      ],
+    );
+  }
+}
+class CustomPlaceDropDown extends StatefulWidget {
+  const CustomPlaceDropDown({
+    super.key,
+    required this.width,
+    required this.title,
+    required this.valueId,
+    required this.callback,
+    required this.list,
+    required this.valuename,
+  });
+
+  final double width;
+  final String title;
+  final int valueId;
+  final String valuename;
+  final List<Place> list;
+  final Function(int outputId, String outputName) callback;
+  @override
+  State<CustomPlaceDropDown> createState() => CustomPlaceDropDownState();
+}
+
+class CustomPlaceDropDownState extends State<CustomPlaceDropDown> {
+  int status = 0;
+  int outputId = 0;
+  String outputName = "";
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    outputId = widget.valueId;
+    outputName = widget.valuename;
+
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          widget.title,
+          style: AppConstant.textbody,
+        ),
+        status == 0
+            ? GestureDetector(
+                onTap: () {
+                  setState(() {
+                    status = 1;
+                  });
+                },
+                child: Text(outputName == "" ? "Không có" : outputName,
+                    style: AppConstant.textbodyfocus),
+              )
+            : Container(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    color: Colors.grey[200]),
+                width: widget.width ,
+                child: DropdownButton(
+                  value: outputId,
+                  items: widget.list
+                      .map((e) => DropdownMenuItem(
+                          value: e.id,
+                          child: Container(
+                              width: widget.width -45,
+                              decoration:
+                                  BoxDecoration(color: Colors.grey[200]),
+                              child: Text(
+                                e.name,
+                                overflow: TextOverflow.ellipsis,
+                              ))))
+                      .toList(),
+                  onChanged: (value) {
+                    setState(() {
+                      outputId = value!;
+                      for (var dropitem in widget.list) {
+                        if (dropitem.id == outputId) {
+                          outputName = dropitem.name;
+                          widget.callback(outputId, outputName);
+                          break;
+                        }
+                      }
+                      status = 0;
+                    });
+                  },
+                )),
+        Divider(
+          thickness: 1,
+        ),
       ],
     );
   }

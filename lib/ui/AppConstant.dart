@@ -25,7 +25,7 @@ class AppConstant {
       fontSize: 30,
       color: const Color.fromARGB(255, 101, 209, 104),
       fontWeight: FontWeight.bold);
-  static Color mainColor = Color.fromARGB(255, 241, 117, 192);
+  static Color mainColor = Color.fromARGB(255, 101, 103, 204);
   static Color backgroundColor = Color.fromARGB(255, 164, 218, 253);
    static TextStyle textbodyw = const TextStyle(
       color: Color.fromARGB(255, 255, 255, 255),
