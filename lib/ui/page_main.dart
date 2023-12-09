@@ -3,6 +3,7 @@ import 'package:connection/models/profile.dart';
 import 'package:connection/providers/mainviewmodel.dart';
 import 'package:connection/providers/menubarviewmodel.dart';
 import 'package:connection/ui/AppConstant.dart';
+import 'package:connection/ui/custom_ctrl.dart';
 import 'package:connection/ui/page_login.dart';
 import 'package:connection/ui/SubPage_Diemdanh.dart';
 import 'package:connection/ui/SubPage_dslop.dart';
@@ -140,10 +141,7 @@ class menuitemlist extends StatelessWidget {
                 child: SizedBox(
                   height: size.width * 0.16,
                   width: size.width * 0.16,
-                  child: const Image(
-                    image: AssetImage('assets/images/ava.jpg'),
-                    fit: BoxFit.cover,
-                  ),
+                  child: CustomAvatar1(size: size),
                 ),
               ),
             ),
