@@ -346,61 +346,64 @@ class CustomPlaceDropDownState extends State<CustomPlaceDropDown> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          widget.title,
-          style: AppConstant.textbody,
-        ),
-        status == 0
-            ? GestureDetector(
-                onTap: () {
-                  setState(() {
-                    status = 1;
-                  });
-                },
-                child: Text(outputName == "" ? "Không có" : outputName,
-                    style: AppConstant.textbodyfocus),
-              )
-            : Container(
-                padding: EdgeInsets.symmetric(horizontal: 10),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
-                    color: Colors.grey[200]),
-                width: widget.width ,
-                child: DropdownButton(
-                  value: outputId,
-                  items: widget.list
-                      .map((e) => DropdownMenuItem(
-                          value: e.id,
-                          child: Container(
-                              width: widget.width -45,
-                              decoration:
-                                  BoxDecoration(color: Colors.grey[200]),
-                              child: Text(
-                                e.name,
-                                overflow: TextOverflow.ellipsis,
-                              ))))
-                      .toList(),
-                  onChanged: (value) {
+    return Container(
+      width: widget.width,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            widget.title,
+            style: AppConstant.textbody,
+          ),
+          status == 0
+              ? GestureDetector(
+                  onTap: () {
                     setState(() {
-                      outputId = value!;
-                      for (var dropitem in widget.list) {
-                        if (dropitem.id == outputId) {
-                          outputName = dropitem.name;
-                          widget.callback(outputId, outputName);
-                          break;
-                        }
-                      }
-                      status = 0;
+                      status = 1;
                     });
                   },
-                )),
-        Divider(
-          thickness: 1,
-        ),
-      ],
+                  child: Text(widget.valuename == "" ? "Không có" : widget.valuename,
+                      style: AppConstant.textbodyfocus),
+                )
+              : Container(
+                  padding: EdgeInsets.symmetric(horizontal: 10),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      color: Colors.grey[200]),
+                  width: widget.width ,
+                  child: DropdownButton(
+                    value: widget.valueId,
+                    items: widget.list
+                        .map((e) => DropdownMenuItem(
+                            value: e.id,
+                            child: Container(
+                                width: widget.width -45,
+                                decoration:
+                                    BoxDecoration(color: Colors.grey[200]),
+                                child: Text(
+                                  e.name,
+                                  overflow: TextOverflow.ellipsis,
+                                ))))
+                        .toList(),
+                    onChanged: (value) {
+                      setState(() {
+                        outputId = value!;
+                        for (var dropitem in widget.list) {
+                          if (dropitem.id == outputId) {
+                            outputName = dropitem.name;
+                            widget.callback(outputId, outputName);
+                            break;
+                          }
+                        }
+                        status = 0;
+                      });
+                    },
+                  )),
+          Divider(
+            thickness: 1,
+          ),
+        ],
+      ),
     );
   }
 }

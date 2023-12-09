@@ -135,7 +135,7 @@ class SPageYourprofile extends StatelessWidget {
                             CustomInputTextFormField(
                               title: 'Điện thoại',
                               value: profile.user.phone,
-                              width: size.width / 2,
+                              width: size.width *0.45,
                               callback: (output) {
                                 profile.user.phone = output;
                                 viewmodel.updatescreen();
@@ -145,7 +145,7 @@ class SPageYourprofile extends StatelessWidget {
                             CustomInputTextFormField(
                               title: 'Ngày sinh',
                               value: profile.user.birthday,
-                              width: size.width * 0.35,
+                              width: size.width * 0.45,
                               callback: (output) {
                                 if (AppConstant.isDate(output)) {
                                   profile.user.birthday = output;
@@ -158,6 +158,7 @@ class SPageYourprofile extends StatelessWidget {
                           ],
                         ),
                         Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             CustomPlaceDropDown(
                                     width: size.width * 0.45,
@@ -168,10 +169,28 @@ class SPageYourprofile extends StatelessWidget {
                                       profile.user.provinceid=outputId;
                                       profile.user.provincename=outputName;
                                        await dcmodel.setCity(outputId);
+                                       profile.user.districtid=0;
+                                        profile.user.wardid=0;
+                                        profile.user.districtname="";
+                                          profile.user.wardname="";
+                                       print('--finished --init--');
                                        viewmodel.hideSpinner();
                                     },
                                     list: dcmodel.listCity,
                                     valuename: profile.user.provincename),
+                                    CustomPlaceDropDown(
+                                    width: size.width * 0.45,
+                                    title: 'Quận/huyện',
+                                    valueId: profile.user.districtid,
+                                    callback: (outputId,outputName)async{
+                                      viewmodel.displaySpinner();
+                                      profile.user.districtid=outputId;
+                                      profile.user.districtname=outputName;
+                                       await dcmodel.setDistrict(outputId);
+                                       viewmodel.hideSpinner();
+                                    },
+                                    list: dcmodel.listDistrict,
+                                    valuename: profile.user.districtname),
                           ],
                         )
                       ],
