@@ -31,35 +31,35 @@ class PageMain extends StatelessWidget {
     "Đăng xuất",
   ];
   final menuBar = menuitemlist();
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final viewmodel = Provider.of<MainViewModel>(context);
-    Profile profile =Profile();
-    if(profile.token == "")
-    {
+    Profile profile = Profile();
+
+    if (profile.token == "") {
       return PageLogin();
     }
-    if(profile.student.mssv =="")
-    {
+    if (profile.student.mssv == "") {
       return PageDangkylop();
     }
     Widget body = SPageTrangchu();
     if (viewmodel.activemenu == SPageYourprofile.idpage) {
       body = SPageYourprofile();
-    }else if (viewmodel.activemenu == SubPageDiemdanh.idpage) {
+    } else if (viewmodel.activemenu == SubPageDiemdanh.idpage) {
       body = SubPageDiemdanh();
-    } 
-    else if (viewmodel.activemenu == SPageDSLop.idpage) {
+    } else if (viewmodel.activemenu == SPageDSLop.idpage) {
       body = SPageDSLop();
-    }else if (viewmodel.activemenu == SubPageDSHP.idpage) {
+    } else if (viewmodel.activemenu == SubPageDSHP.idpage) {
       body = SubPageDSHP();
     } else if (viewmodel.activemenu == SPageDangxuat.idpage) {
       GestureDetector(
           onTap: () =>
               Navigator.of(context).popAndPushNamed(PageLogin.routename));
-    } else
+    } else {
       menuBar.initialize(menutitle);
+    }
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppConstant.mainColor,
@@ -94,7 +94,10 @@ class PageMain extends StatelessWidget {
                         viewmodel.closeMenu();
                       },
                       child: Stack(
-                        children: [CustomMenuSideBar(size: size), menuBar,],
+                        children: [
+                          CustomMenuSideBar(size: size),
+                          menuBar,
+                        ],
                       ));
                 })
               : Container(),
@@ -267,7 +270,7 @@ class DrawerCustomPaint extends CustomPainter {
     path.lineTo(size.width, 0);
     // path.lineTo(size.width, size.height);
     path.quadraticBezierTo(
-      generatePointX(size.width), offset.dy,size.width, size.height);
+        generatePointX(size.width), offset.dy, size.width, size.height);
     path.lineTo(0, size.height);
     path.close();
     canvas.drawPath(path, paint);

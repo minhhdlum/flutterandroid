@@ -296,11 +296,12 @@ class ApiService {
       'Authorization': 'Bearer ' + Profile().token,
       'Accept': 'application/json',
     };
+
 // final response
 
     FormData formData = FormData.fromMap(
         {'file': await MultipartFile.fromFile(imageFile.path)});
-    await _dio.post(' https://chocaycanh.club/public/api/me/avatar',
+    await _dio.post('https://chocaycanh.club/public/api/me/avatar',
         data: formData, options: Options(headers: headers));
   }
 }

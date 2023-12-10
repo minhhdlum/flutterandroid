@@ -45,7 +45,7 @@ class UserRepository {
     if (image != null) {
       final img.Image origianlImage =
           img.decodeImage(File(image.path).readAsBytesSync())!;
-      final img.Image resizedImage = img.copyResize(origianlImage, width: 300);
+      final img.Image resizedImage = img.copyResize(origianlImage, width: 250);
       final File resizedFile =
           File(image.path.replaceAll('.jpg', '_resized.jpg'))
             ..writeAsBytesSync(img.encodeJpg(resizedImage));

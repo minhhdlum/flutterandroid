@@ -202,47 +202,46 @@ class SPageYourprofile extends StatelessWidget {
                             )
                           ]),
                     ), //end header....*****
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              CustomInputTextFormField(
-                                title: 'Điện thoại',
-                                value: profile.user.phone,
-                                width: size.width * 0.45,
-                                callback: (output) {
-                                  profile.user.phone = output;
-                                  viewmodel.setModified();
-                                  viewmodel.updatescreen();
-                                },
-                                type: TextInputType.phone,
-                              ),
-                              CustomInputTextFormField(
-                                title: 'Ngày sinh',
-                                value: profile.user.birthday,
-                                width: size.width * 0.45,
-                                callback: (output) {
-                                  if (AppConstant.isDate(output)) {
-                                    profile.user.birthday = output;
-                                  }
-                                  viewmodel.setModified();
-                                  viewmodel.updatescreen();
-                                },
-                                type: TextInputType.datetime,
-                              ),
-                            ],
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              CustomPlaceDropDown(
-                                  width: size.width * 0.45,
-                                  title: 'Thành phố/Tỉnh',
-                                  valueId: profile.user.provinceid,
-                                  callback: (outputId, outputName) async {
+                    Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            CustomInputTextFormField(
+                              title: 'Điện thoại',
+                              value: profile.user.phone,
+                              width: size.width * 0.4,
+                              callback: (output) {
+                                profile.user.phone = output;
+                                viewmodel.setModified();
+                                viewmodel.updatescreen();
+                              },
+                              type: TextInputType.phone,
+                            ),
+                            CustomInputTextFormField(
+                              title: 'Ngày sinh',
+                              value: profile.user.birthday,
+                              width: size.width * 0.45,
+                              callback: (output) {
+                                if (AppConstant.isDate(output)) {
+                                  profile.user.birthday = output;
+                                }
+                                viewmodel.setModified();
+                                viewmodel.updatescreen();
+                              },
+                              type: TextInputType.datetime,
+                            ),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            CustomPlaceDropDown(
+                                width: size.width * 0.4,
+                                title: 'Thành phố/Tỉnh',
+                                valueId: profile.user.provinceid,
+                                callback: (outputId, outputName) async {
+                                  if (outputId != profile.user.provinceid) {
                                     viewmodel.displaySpinner();
                                     profile.user.provinceid = outputId;
                                     profile.user.provincename = outputName;
@@ -253,14 +252,16 @@ class SPageYourprofile extends StatelessWidget {
                                     profile.user.wardname = "";
                                     viewmodel.hideSpinner();
                                     viewmodel.setModified();
-                                  },
-                                  list: dcmodel.listCity,
-                                  valuename: profile.user.provincename),
-                              CustomPlaceDropDown(
-                                  width: size.width * 0.45,
-                                  title: 'Quận/huyện',
-                                  valueId: profile.user.districtid,
-                                  callback: (outputId, outputName) async {
+                                  }
+                                },
+                                list: dcmodel.listCity,
+                                valuename: profile.user.provincename),
+                            CustomPlaceDropDown(
+                                width: size.width * 0.45,
+                                title: 'Quận/huyện',
+                                valueId: profile.user.districtid,
+                                callback: (outputId, outputName) async {
+                                  if (outputId != profile.user.districtid) {
                                     viewmodel.displaySpinner();
                                     profile.user.districtid = outputId;
                                     profile.user.districtname = outputName;
@@ -269,54 +270,53 @@ class SPageYourprofile extends StatelessWidget {
                                     profile.user.wardname = "";
                                     viewmodel.setModified();
                                     viewmodel.hideSpinner();
-                                  },
-                                  list: dcmodel.listDistrict,
-                                  valuename: profile.user.districtname),
-                            ],
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              CustomPlaceDropDown(
-                                  width: size.width * 0.45,
-                                  title: 'Huyện/xã',
-                                  valueId: profile.user.wardid,
-                                  callback: (outputId, outputName) async {
-                                    viewmodel.displaySpinner();
-                                    profile.user.wardid = outputId;
-                                    profile.user.wardname = outputName;
-                                    await dcmodel.setWard(outputId);
-                                    viewmodel.setModified();
-                                    viewmodel.displaySpinner();
-                                  },
-                                  list: dcmodel.listWard,
-                                  valuename: profile.user.wardname),
-                              CustomInputTextFormField(
-                                title: 'Tên đường/số nhà',
-                                value: profile.user.address,
-                                width: size.width * 0.45,
-                                callback: (output) {
-                                  profile.user.address = output;
-                                  viewmodel.setModified();
-                                  viewmodel.updatescreen();
+                                  }
                                 },
-                                type: TextInputType.streetAddress,
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 10),
-                          SizedBox(
-                              width: size.width * 0.3,
-                              height: size.height * 0.3,
-                              child: QrImageView(
-                                data: '{userid:' +
-                                    profile.user.id.toString() +
-                                    '}',
-                                version: QrVersions.auto,
-                                gapless: false,
-                              ))
-                        ],
-                      ),
+                                list: dcmodel.listDistrict,
+                                valuename: profile.user.districtname),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            CustomPlaceDropDown(
+                                width: size.width * 0.4,
+                                title: 'Huyện/xã',
+                                valueId: profile.user.wardid,
+                                callback: (outputId, outputName) async {
+                                  viewmodel.displaySpinner();
+                                  profile.user.wardid = outputId;
+                                  profile.user.wardname = outputName;
+                                  await dcmodel.setWard(outputId);
+                                  viewmodel.setModified();
+                                  viewmodel.displaySpinner();
+                                },
+                                list: dcmodel.listWard,
+                                valuename: profile.user.wardname),
+                            CustomInputTextFormField(
+                              title: 'Tên đường/số nhà',
+                              value: profile.user.address,
+                              width: size.width * 0.45,
+                              callback: (output) {
+                                profile.user.address = output;
+                                viewmodel.setModified();
+                                viewmodel.updatescreen();
+                              },
+                              type: TextInputType.streetAddress,
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 10),
+                        SizedBox(
+                            width: size.width * 0.3,
+                            height: size.height * 0.3,
+                            child: QrImageView(
+                              data:
+                                  '{userid:' + profile.user.id.toString() + '}',
+                              version: QrVersions.auto,
+                              gapless: false,
+                            ))
+                      ],
                     ),
                   ],
                 ),

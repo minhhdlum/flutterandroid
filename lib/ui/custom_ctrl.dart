@@ -96,6 +96,7 @@ class CustomSpinner extends StatelessWidget {
     );
   }
 }
+
 class CustomAvatar1 extends StatelessWidget {
   const CustomAvatar1({
     super.key,
@@ -107,14 +108,13 @@ class CustomAvatar1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(size.height*0.25),
+      borderRadius: BorderRadius.circular(size.height * 0.25),
       child: Container(
-        width: 100,
-        height: 100,
-        child: Image.network(Profile().user.avatar)),
+          width: 100, height: 100, child: Image.network(Profile().user.avatar)),
     );
   }
 }
+
 class CustomInputTextFormField extends StatefulWidget {
   const CustomInputTextFormField({
     super.key,
@@ -142,7 +142,7 @@ class _CustomInputTextFormFieldState extends State<CustomInputTextFormField> {
 
   @override
   void initState() {
-    output=widget.value;
+    output = widget.value;
     super.initState();
   }
 
@@ -309,6 +309,7 @@ class _CustomInputDropDownState extends State<CustomInputDropDown> {
     );
   }
 }
+
 class CustomPlaceDropDown extends StatefulWidget {
   const CustomPlaceDropDown({
     super.key,
@@ -347,7 +348,7 @@ class CustomPlaceDropDownState extends State<CustomPlaceDropDown> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: widget.width,
+      width: widget.width - 15,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -362,7 +363,8 @@ class CustomPlaceDropDownState extends State<CustomPlaceDropDown> {
                       status = 1;
                     });
                   },
-                  child: Text(widget.valuename == "" ? "Không có" : widget.valuename,
+                  child: Text(
+                      widget.valuename == "" ? "Không có" : widget.valuename,
                       style: AppConstant.textbodyfocus),
                 )
               : Container(
@@ -370,14 +372,14 @@ class CustomPlaceDropDownState extends State<CustomPlaceDropDown> {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(12),
                       color: Colors.grey[200]),
-                  width: widget.width ,
+                  width: widget.width,
                   child: DropdownButton(
                     value: widget.valueId,
                     items: widget.list
                         .map((e) => DropdownMenuItem(
                             value: e.id,
                             child: Container(
-                                width: widget.width -45,
+                                width: widget.width - 50,
                                 decoration:
                                     BoxDecoration(color: Colors.grey[200]),
                                 child: Text(

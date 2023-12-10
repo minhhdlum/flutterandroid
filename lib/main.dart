@@ -38,7 +38,8 @@ void main() {
     ),
     ChangeNotifierProvider<MenuBarViewModel>(
       create: (context) => MenuBarViewModel(),
-    ),ChangeNotifierProvider<ProfileViewModel>(
+    ),
+    ChangeNotifierProvider<ProfileViewModel>(
       create: (context) => ProfileViewModel(),
     ),
     ChangeNotifierProvider<DiachiModel>(
@@ -68,7 +69,7 @@ class MyApp extends StatelessWidget {
             ColorScheme.light(primary: Color.fromRGBO(233, 112, 120, 1)),
         useMaterial3: true,
       ),
-      home: PageMain(),
+      home: PageLogin(),
     );
   }
 }
