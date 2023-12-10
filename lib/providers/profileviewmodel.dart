@@ -9,6 +9,9 @@ class ProfileViewModel with ChangeNotifier {
   int modified = 0;
   int updateavatar = 0;
   int upload = 0;
+  int ds = 0;
+  int dshuyen = 0;
+  int dsxa = 0;
   void updateAvatar() {
     updateavatar = 1;
     upload = 1;
@@ -32,6 +35,9 @@ class ProfileViewModel with ChangeNotifier {
   void setModified() {
     if (modified == 0) {
       modified = 1;
+      int ds = 0;
+      int dshuyen = 0;
+      int dsxa = 0;
       notifyListeners();
     }
   }

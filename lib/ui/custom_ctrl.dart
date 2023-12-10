@@ -10,6 +10,7 @@ class Custom_Button extends StatelessWidget {
     super.key,
     required this.textButton,
   });
+
   final String textButton;
   @override
   Widget build(BuildContext context) {
@@ -273,7 +274,7 @@ class _CustomInputDropDownState extends State<CustomInputDropDown> {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12),
                     color: Colors.grey[200]),
-                width: widget.width - 25,
+                width: widget.width,
                 child: DropdownButton(
                   value: outputId,
                   items: widget.list
@@ -371,15 +372,15 @@ class CustomPlaceDropDownState extends State<CustomPlaceDropDown> {
                   padding: EdgeInsets.symmetric(horizontal: 10),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(12),
-                      color: Colors.grey[200]),
-                  width: widget.width,
+                      color: const Color.fromARGB(255, 165, 162, 162)),
+                  width: (widget.width),
                   child: DropdownButton(
                     value: widget.valueId,
                     items: widget.list
                         .map((e) => DropdownMenuItem(
                             value: e.id,
                             child: Container(
-                                width: widget.width - 50,
+                                width: (widget.width - 50),
                                 decoration:
                                     BoxDecoration(color: Colors.grey[200]),
                                 child: Text(
