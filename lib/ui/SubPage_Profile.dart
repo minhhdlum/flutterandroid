@@ -5,6 +5,7 @@ import 'package:connection/providers/diachimodel.dart';
 import 'package:connection/providers/profileviewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
@@ -36,7 +37,7 @@ class SPageYourprofile extends StatelessWidget {
     final viewmodel = Provider.of<ProfileViewModel>(context);
     final dcmodel = Provider.of<DiachiModel>(context);
     Future.delayed(Duration.zero, () => init(dcmodel, viewmodel));
-   
+
     return GestureDetector(
       onTap: () => MainViewModel().closeMenu(),
       child: Container(
@@ -69,35 +70,41 @@ class SPageYourprofile extends StatelessWidget {
                                     Text(
                                       profile.student.diem.toString(),
                                       style: AppConstant.textbodyw,
-                                    ),viewmodel.upload==1?
-                                           Padding(
-                                             padding: const EdgeInsets.all(2.0),
-                                             child: GestureDetector(
-                                              onTap: (){
+                                    ),
+                                    viewmodel.upload == 1
+                                        ? Padding(
+                                            padding: const EdgeInsets.all(2.0),
+                                            child: GestureDetector(
+                                              onTap: () {
                                                 viewmodel.uploadAvatar(image!);
                                               },
-                                               child: Container(
-                                                 child: Icon(Icons.save)),
-                                             ),
-                                           ):Container(),
+                                              child: Container(
+                                                  child: Icon(Icons.save)),
+                                            ),
+                                          )
+                                        : Container(),
                                   ],
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: GestureDetector(
                                       onTap: () async {
-                                        viewmodel.updateavatar=0;
-                                        final ImagePicker _picker = ImagePicker();
+                                        viewmodel.updateavatar = 0;
+                                        final ImagePicker _picker =
+                                            ImagePicker();
                                         image = await _picker.pickImage(
                                             source: ImageSource.gallery);
                                         viewmodel.updateAvatar();
                                       },
-                                      child: viewmodel.updateavatar==1 &&image!=null ?
-                                           Stack(
-                                             children: [
-                                               ClipRRect(
-                                                borderRadius: BorderRadius.circular(100),
-                                                 child: SizedBox(
+                                      child: viewmodel.updateavatar == 1 &&
+                                              image != null
+                                          ? Stack(
+                                              children: [
+                                                ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          100),
+                                                  child: SizedBox(
                                                     width: 100,
                                                     height: 100,
                                                     child: Image.file(
@@ -105,10 +112,10 @@ class SPageYourprofile extends StatelessWidget {
                                                       fit: BoxFit.fill,
                                                     ),
                                                   ),
-                                               )
-                                             ],
-                                           ):CustomAvatar1(size: size)
-                                          ),
+                                                )
+                                              ],
+                                            )
+                                          : CustomAvatar1(size: size)),
                                 ),
                               ],
                             ),
@@ -170,21 +177,25 @@ class SPageYourprofile extends StatelessWidget {
                                   onTap: () {
                                     viewmodel.updateProfile();
                                   },
-                                  child: SizedBox(
-                                    width: size.width * 0.4,
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(10),
-                                      child: viewmodel.modified == 1
-                                          ? Container(
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(10),
+                                    child: viewmodel.modified == 1
+                                        ? Container(
                                             decoration: BoxDecoration(
-                                               border: Border.all(
-                                                color: Color.fromARGB(255, 252, 252, 252), // You can set the color of the border
-                                                width: 2.0,           // You can set the width of the border
+                                              border: Border.all(
+                                                color: Color.fromARGB(
+                                                    255,
+                                                    252,
+                                                    252,
+                                                    252), // You can set the color of the border
+                                                width:
+                                                    2.0, // You can set the width of the border
                                               ),
                                             ),
-                                            child: Text('Lưu thông tin!',style:AppConstant.textbodyfocusw))
-                                          : Container(),
-                                    ),
+                                            child: Text('Lưu thông tin!',
+                                                style:
+                                                    AppConstant.textbodyfocusw))
+                                        : Container(),
                                   ),
                                 )
                               ],
@@ -250,16 +261,14 @@ class SPageYourprofile extends StatelessWidget {
                                   title: 'Quận/huyện',
                                   valueId: profile.user.districtid,
                                   callback: (outputId, outputName) async {
-                                    if (profile.user.districtid != outputId) {
-                                      viewmodel.displaySpinner();
-                                      profile.user.districtid = outputId;
-                                      profile.user.districtname = outputName;
-                                      await dcmodel.setDistrict(outputId);
-                                      profile.user.wardid = 0;
-                                      profile.user.wardname = "";
-                                      viewmodel.setModified();
-                                      viewmodel.hideSpinner();
-                                    }
+                                    viewmodel.displaySpinner();
+                                    profile.user.districtid = outputId;
+                                    profile.user.districtname = outputName;
+                                    await dcmodel.setDistrict(outputId);
+                                    profile.user.wardid = 0;
+                                    profile.user.wardname = "";
+                                    viewmodel.setModified();
+                                    viewmodel.hideSpinner();
                                   },
                                   list: dcmodel.listDistrict,
                                   valuename: profile.user.districtname),
@@ -300,8 +309,9 @@ class SPageYourprofile extends StatelessWidget {
                               width: size.width * 0.3,
                               height: size.height * 0.3,
                               child: QrImageView(
-                                data:
-                                    '{userid:' + profile.user.id.toString() + '}',
+                                data: '{userid:' +
+                                    profile.user.id.toString() +
+                                    '}',
                                 version: QrVersions.auto,
                                 gapless: false,
                               ))
