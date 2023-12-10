@@ -348,7 +348,7 @@ class CustomPlaceDropDownState extends State<CustomPlaceDropDown> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: widget.width - 15,
+      width: widget.width,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
