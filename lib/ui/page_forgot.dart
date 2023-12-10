@@ -62,7 +62,7 @@ class PageForgot extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           const Image(
-                            image: AssetImage('assets/images/wechat.gif'),
+                            image: AssetImage('assets/images/giphy.gif'),
                             width: 200,
                           ),
                           const SizedBox(
