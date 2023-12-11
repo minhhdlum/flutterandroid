@@ -18,10 +18,10 @@ class PlaceRepository {
         var city = City.fromJson(item);
         list.add(city);
       }
-      print('Đã lấy dữ liệu tỉnh');
       viewmodel.ds = 1;
+      print('Đã lấy dữ liệu tỉnh');
+      viewmodel.hideSpinner();
     }
-    viewmodel.hideSpinner();
     return list;
   }
 
@@ -38,10 +38,10 @@ class PlaceRepository {
         var district = District.fromJson(item);
         list.add(district);
       }
-      print('Đã lấy dữ liệu huyện');
       viewmodel.dshuyen = 1;
+      viewmodel.hideSpinner();
+      print('Đã lấy dữ liệu huyện');
     }
-    viewmodel.hideSpinner();
     return list;
   }
 
@@ -59,10 +59,10 @@ class PlaceRepository {
         var ward = Ward.fromJson(item);
         list.add(ward);
       }
-      print('Đã lấy dữ liệu xã');
       viewmodel.dsxa = 1;
+      viewmodel.hideSpinner();
+      print('Đã lấy dữ liệu xã');
     }
-    viewmodel.hideSpinner();
     return list;
   }
 }
