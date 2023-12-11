@@ -373,19 +373,19 @@ class CustomPlaceDropDownState extends State<CustomPlaceDropDown> {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(12),
                       color: const Color.fromARGB(255, 165, 162, 162)),
-                  width: widget.width,
+                  width: (widget.width),
                   child: DropdownButton(
                     value: widget.valueId,
                     items: widget.list
                         .map((e) => DropdownMenuItem(
                             value: e.id,
                             child: Container(
-                                width: (widget.width - 45),
+                                width: (widget.width - 50),
                                 decoration:
                                     BoxDecoration(color: Colors.grey[200]),
                                 child: Text(
                                   e.name,
-                                  overflow: TextOverflow.clip,
+                                  overflow: TextOverflow.ellipsis,
                                 ))))
                         .toList(),
                     onChanged: (value) {
