@@ -249,16 +249,20 @@ class SPageYourprofile extends StatelessWidget {
                                       title: 'Thành phố/Tỉnh',
                                       valueId: profile.user.provinceid,
                                       callback: (outputId, outputName) async {
-                                        viewmodel.displaySpinner();
-                                        profile.user.provinceid = outputId;
-                                        profile.user.provincename = outputName;
-                                        await dcmodel.setCity(outputId);
-                                        profile.user.districtid = 0;
-                                        profile.user.wardid = 0;
-                                        profile.user.districtname = "";
-                                        profile.user.wardname = "";
-                                        viewmodel.hideSpinner();
-                                        viewmodel.setModified();
+                                        if (profile.user.provinceid !=
+                                            outputId) {
+                                          viewmodel.displaySpinner();
+                                          profile.user.provinceid = outputId;
+                                          profile.user.provincename =
+                                              outputName;
+                                          await dcmodel.setCity(outputId);
+                                          profile.user.districtid = 0;
+                                          profile.user.wardid = 0;
+                                          profile.user.districtname = "";
+                                          profile.user.wardname = "";
+                                          viewmodel.hideSpinner();
+                                          viewmodel.setModified();
+                                        }
                                       },
                                       list: dcmodel.listCity,
                                       valuename: profile.user.provincename),
@@ -267,14 +271,18 @@ class SPageYourprofile extends StatelessWidget {
                                       title: 'Quận/huyện',
                                       valueId: profile.user.districtid,
                                       callback: (outputId, outputName) async {
-                                        viewmodel.displaySpinner();
-                                        profile.user.districtid = outputId;
-                                        profile.user.districtname = outputName;
-                                        await dcmodel.setDistrict(outputId);
-                                        profile.user.wardid = 0;
-                                        profile.user.wardname = "";
-                                        viewmodel.setModified();
-                                        viewmodel.hideSpinner();
+                                        if (profile.user.districtid !=
+                                            outputId) {
+                                          viewmodel.displaySpinner();
+                                          profile.user.districtid = outputId;
+                                          profile.user.districtname =
+                                              outputName;
+                                          await dcmodel.setDistrict(outputId);
+                                          profile.user.wardid = 0;
+                                          profile.user.wardname = "";
+                                          viewmodel.setModified();
+                                          viewmodel.hideSpinner();
+                                        }
                                       },
                                       list: dcmodel.listDistrict,
                                       valuename: profile.user.districtname),
