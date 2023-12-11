@@ -249,8 +249,8 @@ class SPageYourprofile extends StatelessWidget {
                                       title: 'Thành phố/Tỉnh',
                                       valueId: profile.user.provinceid,
                                       callback: (outputId, outputName) async {
-                                        if (outputId !=
-                                            profile.user.provinceid) {
+                                        if (profile.user.provinceid !=
+                                            outputId) {
                                           viewmodel.displaySpinner();
                                           profile.user.provinceid = outputId;
                                           profile.user.provincename =
@@ -271,8 +271,8 @@ class SPageYourprofile extends StatelessWidget {
                                       title: 'Quận/huyện',
                                       valueId: profile.user.districtid,
                                       callback: (outputId, outputName) async {
-                                        if (outputId !=
-                                            profile.user.districtid) {
+                                        if (profile.user.districtid !=
+                                            outputId) {
                                           viewmodel.displaySpinner();
                                           profile.user.districtid = outputId;
                                           profile.user.districtname =

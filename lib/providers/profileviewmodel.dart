@@ -35,9 +35,9 @@ class ProfileViewModel with ChangeNotifier {
   void setModified() {
     if (modified == 0) {
       modified = 1;
-      int ds = 0;
-      int dshuyen = 0;
-      int dsxa = 0;
+      ds = 0;
+      dshuyen = 0;
+      dsxa = 0;
       notifyListeners();
     }
   }
