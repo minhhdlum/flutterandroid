@@ -4,7 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class Profile{
   static final Profile _instance = Profile._internal();
-  Profile._internal({this.token = ""});
+  Profile._internal();
   factory Profile() {
     return _instance;
   }

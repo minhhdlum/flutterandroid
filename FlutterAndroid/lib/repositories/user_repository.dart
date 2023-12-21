@@ -24,7 +24,7 @@ class UserRepository {
         int tm = temp.indexOf('-', ti + 1);
         String submonth = temp.substring(ti + 1, tm);
         String subyear = temp.substring(tm + 1, temp.length);
-        birthday = subday + '/' + submonth + '/' + subyear;
+        birthday = '$subday/$submonth/$subyear';
         user.birthday = birthday;
       }
     }
@@ -42,14 +42,12 @@ class UserRepository {
 
   Future<void> uploadAvatar(XFile image) async {
     ApiService api = ApiService();
-    if (image != null) {
-      final img.Image origianlImage =
-          img.decodeImage(File(image.path).readAsBytesSync())!;
-      final img.Image resizedImage = img.copyResize(origianlImage, width: 250);
-      final File resizedFile =
-          File(image.path.replaceAll('.jpg', '_resized.jpg'))
-            ..writeAsBytesSync(img.encodeJpg(resizedImage));
-      await api.uploadAvatarToServer(File(resizedFile.path));
+    final img.Image origianlImage =
+        img.decodeImage(File(image.path).readAsBytesSync())!;
+    final img.Image resizedImage = img.copyResize(origianlImage, width: 250);
+    final File resizedFile =
+        File(image.path.replaceAll('.jpg', '_resized.jpg'))
+          ..writeAsBytesSync(img.encodeJpg(resizedImage));
+    await api.uploadAvatarToServer(File(resizedFile.path));
     }
-  }
 }

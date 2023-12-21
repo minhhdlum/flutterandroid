@@ -25,7 +25,7 @@ class ApiService {
     Profile profile = Profile();
     Map<String, String> headers = {
       'Content-type': "application/json; charset=UTF-8",
-      'Authorization': 'Bearer ' + Profile().token,
+      'Authorization': 'Bearer ${Profile().token}',
       'Accept': 'application/json',
     };
     Map<String, dynamic> param = {
@@ -49,15 +49,15 @@ class ApiService {
 
   Future<List<dynamic>?> getListWard(int id) async {
     Profile profile = Profile();
-    String api_url = "https://chocaycanh.club/api/getjsxa?id=" + id.toString();
+    String apiUrl = "https://chocaycanh.club/api/getjsxa?id=$id";
     Map<String, String> headers = {
       'Content-type': "application/json; charset=UTF-8",
-      'Authorization': 'Bearer ' + Profile().token,
+      'Authorization': 'Bearer ${Profile().token}',
       'Accept': 'application/json',
     };
     var client = http.Client();
     try {
-      var response = await client.get(Uri.parse(api_url), headers: headers);
+      var response = await client.get(Uri.parse(apiUrl), headers: headers);
       if (response.statusCode == 200) {
         var data = jsonDecode(response.body);
         return data;
@@ -65,20 +65,21 @@ class ApiService {
     } catch (e) {
       return null;
     }
+    return null;
   }
 
   Future<List<dynamic>?> getListDistric(int id) async {
     Profile profile = Profile();
-    String api_url =
-        "https://chocaycanh.club/api/getjshuyen?id=" + id.toString();
+    String apiUrl =
+        "https://chocaycanh.club/api/getjshuyen?id=$id";
     Map<String, String> headers = {
       'Content-type': "application/json; charset=UTF-8",
-      'Authorization': 'Bearer ' + Profile().token,
+      'Authorization': 'Bearer ${Profile().token}',
       'Accept': 'application/json',
     };
     var client = http.Client();
     try {
-      var response = await client.get(Uri.parse(api_url), headers: headers);
+      var response = await client.get(Uri.parse(apiUrl), headers: headers);
       if (response.statusCode == 200) {
         var data = jsonDecode(response.body);
         return data;
@@ -86,19 +87,20 @@ class ApiService {
     } catch (e) {
       return null;
     }
+    return null;
   }
 
   Future<List<dynamic>?> getListCity() async {
     Profile profile = Profile();
-    String api_url = "https://chocaycanh.club/api/getjstinh";
+    String apiUrl = "https://chocaycanh.club/api/getjstinh";
     Map<String, String> headers = {
       'Content-type': "application/json; charset=UTF-8",
-      'Authorization': 'Bearer ' + Profile().token,
+      'Authorization': 'Bearer ${Profile().token}',
       'Accept': 'application/json',
     };
     var client = http.Client();
     try {
-      var response = await client.get(Uri.parse(api_url), headers: headers);
+      var response = await client.get(Uri.parse(apiUrl), headers: headers);
       if (response.statusCode == 200) {
         var data = jsonDecode(response.body);
         return data;
@@ -106,13 +108,14 @@ class ApiService {
     } catch (e) {
       return null;
     }
+    return null;
   }
 
   Future<Response?> updateProfile() async {
     Profile profile = Profile();
     Map<String, String> headers = {
       'Content-type': "application/json; charset=UTF-8",
-      'Authorization': 'Bearer ' + Profile().token,
+      'Authorization': 'Bearer ${Profile().token}',
       'Accept': 'application/json',
     };
     String birthday = "";
@@ -123,7 +126,7 @@ class ApiService {
       int tm = temp.indexOf('/', ti + 1);
       String submonth = temp.substring(ti + 1, tm);
       String subyear = temp.substring(tm + 1, temp.length);
-      birthday = subyear + '-' + submonth + '-' + subday;
+      birthday = '$subyear-$submonth-$subday';
     }
     Map<String, dynamic> param = {
       "first_name": profile.user.first_name,
@@ -162,7 +165,7 @@ class ApiService {
   Future<Response?> getDsLop() async {
     Map<String, String> headers = {
       'Content-type': "application/json; charset=UTF-8",
-      'Authorization': 'Bearer ' + Profile().token,
+      'Authorization': 'Bearer ${Profile().token}',
       'Accept': 'application/json',
     };
     String apiUrl = "https://chocaycanh.club/api/lophoc/ds";
@@ -182,7 +185,7 @@ class ApiService {
   Future<Response?> getUserInfo() async {
     Map<String, String> headers = {
       'Content-type': "application/json; charset=UTF-8",
-      'Authorization': 'Bearer ' + Profile().token,
+      'Authorization': 'Bearer ${Profile().token}',
       'Accept': 'application/json',
     };
     String apiUrl = "https://chocaycanh.club/api/me";
@@ -202,7 +205,7 @@ class ApiService {
   Future<Response?> getStudentInfo() async {
     Map<String, String> headers = {
       'Content-type': "application/json; charset=UTF-8",
-      'Authorization': 'Bearer ' + Profile().token,
+      'Authorization': 'Bearer ${Profile().token}',
       'Accept': 'application/json',
     };
     String apiUrl = "https://chocaycanh.club/api/sinhvien/info";
@@ -293,7 +296,7 @@ class ApiService {
     Profile profile = Profile();
     Map<String, String> headers = {
       'Content-type': "application/json; charset=UTF-8",
-      'Authorization': 'Bearer ' + Profile().token,
+      'Authorization': 'Bearer ${Profile().token}',
       'Accept': 'application/json',
     };
 

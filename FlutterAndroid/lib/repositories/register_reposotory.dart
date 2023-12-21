@@ -6,10 +6,11 @@ class RegisterRepository {
     int kq = 2;
     final response = await api.registerUser(email,username, password);
     if(response != null && response.statusCode == 201 ){
-      if(response.data['requies_email_confirmation'] == true)
+      if(response.data['requies_email_confirmation'] == true) {
         kq = 3;
-      else
+      } else {
         kq = 4;
+      }
     }
     return kq;
   }

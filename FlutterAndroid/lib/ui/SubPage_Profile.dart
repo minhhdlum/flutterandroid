@@ -5,7 +5,6 @@ import 'package:connection/providers/diachimodel.dart';
 import 'package:connection/providers/profileviewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
@@ -53,7 +52,7 @@ class SPageYourprofile extends StatelessWidget {
                         width: double.infinity,
                         decoration: BoxDecoration(
                             color: AppConstant.mainColor,
-                            borderRadius: BorderRadius.only(
+                            borderRadius: const BorderRadius.only(
                                 bottomLeft: Radius.circular(60),
                                 bottomRight: Radius.circular(60))),
                         child: Row(
@@ -64,7 +63,7 @@ class SPageYourprofile extends StatelessWidget {
                                 children: [
                                   Row(
                                     children: [
-                                      Icon(
+                                      const Icon(
                                         Icons.star,
                                         color: Colors.yellow,
                                       ),
@@ -82,7 +81,7 @@ class SPageYourprofile extends StatelessWidget {
                                                       .uploadAvatar(image!);
                                                 },
                                                 child: Container(
-                                                    child: Icon(Icons.save)),
+                                                    child: const Icon(Icons.save)),
                                               ),
                                             )
                                           : Container(),
@@ -93,9 +92,9 @@ class SPageYourprofile extends StatelessWidget {
                                     child: GestureDetector(
                                         onTap: () async {
                                           viewmodel.updateavatar = 0;
-                                          final ImagePicker _picker =
+                                          final ImagePicker picker =
                                               ImagePicker();
-                                          image = await _picker.pickImage(
+                                          image = await picker.pickImage(
                                               source: ImageSource.gallery);
                                           viewmodel.updateAvatar();
                                         },
@@ -156,7 +155,7 @@ class SPageYourprofile extends StatelessWidget {
                                               " (chưa duyệt)",
                                               style: AppConstant.textbodyw,
                                             )
-                                          : Text(''),
+                                          : const Text(''),
                                     ],
                                   ),
                                   Row(
@@ -186,7 +185,7 @@ class SPageYourprofile extends StatelessWidget {
                                           ? Container(
                                               decoration: BoxDecoration(
                                                 border: Border.all(
-                                                  color: Color.fromARGB(
+                                                  color: const Color.fromARGB(
                                                       255,
                                                       252,
                                                       252,
@@ -324,9 +323,7 @@ class SPageYourprofile extends StatelessWidget {
                                   width: size.width * 0.3,
                                   height: size.height * 0.3,
                                   child: QrImageView(
-                                    data: '{userid:' +
-                                        profile.user.id.toString() +
-                                        '}',
+                                    data: '{userid:${profile.user.id}}',
                                     version: QrVersions.auto,
                                     gapless: false,
                                   ))

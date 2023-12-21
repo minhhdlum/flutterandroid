@@ -1,5 +1,4 @@
 import 'package:connection/models/profile.dart';
-import 'package:connection/models/student.dart';
 import 'package:connection/repositories/lop_repository.dart';
 import 'package:connection/repositories/student_repository.dart';
 import 'package:connection/ui/AppConstant.dart';
@@ -8,7 +7,6 @@ import 'package:connection/ui/page_main.dart';
 import 'package:flutter/material.dart';
 
 import '../models/class.dart';
-import '../repositories/user_repository.dart';
 
 class PageDangkylop extends StatefulWidget {
   const PageDangkylop({super.key});
@@ -50,13 +48,13 @@ class _PageDangkylopState extends State<PageDangkylop> {
                 'Thêm thông tin cơ bản',
                 style: AppConstant.textfancyheader2,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Text(
                   'Bạn không thể quay trở lại trang sau khi rời đi. Vì vậy hãy kiểm tra kỹ nhé!',
                   style: AppConstant.text_error),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               CustomInputTextFormField(
@@ -67,7 +65,7 @@ class _PageDangkylopState extends State<PageDangkylop> {
                 },
                   value: ten,
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               CustomInputTextFormField(
                 title: 'MSSV',
                 width: size.width,
@@ -97,7 +95,7 @@ class _PageDangkylopState extends State<PageDangkylop> {
                               list: listlop!,
                               valuename: tenlop);
                         } else {
-                          return Text('Loi xay ra');
+                          return const Text('Loi xay ra');
                         }
                       })
                   : CustomInputDropDown(
@@ -111,7 +109,7 @@ class _PageDangkylopState extends State<PageDangkylop> {
                       },
                       list: listlop!,
                       valuename: tenlop),
-                      SizedBox(height: 20,),
+                      const SizedBox(height: 20,),
                       GestureDetector(
                         onTap: ()async{
                           profile.student.mssv=mssv;
@@ -121,8 +119,8 @@ class _PageDangkylopState extends State<PageDangkylop> {
                           //await UserRepository().updateProfile();
                           await StudentRepository().dangkyLop();
                         },
-                        child: Custom_Button(textButton: 'Lưu thông tin')),
-                      SizedBox(height: 20,),
+                        child: const Custom_Button(textButton: 'Lưu thông tin')),
+                      const SizedBox(height: 20,),
                       GestureDetector(onTap: (){
                         Navigator.popAndPushNamed(context, PageMain.routename);
                       },

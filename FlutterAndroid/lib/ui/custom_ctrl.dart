@@ -69,7 +69,7 @@ class AppLogo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Icon(Icons.favorite,
+    return const Icon(Icons.favorite,
         size: 150, color: Color.fromARGB(255, 230, 6, 80));
   }
 }
@@ -110,7 +110,7 @@ class CustomAvatar1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(size.height * 0.25),
-      child: Container(
+      child: SizedBox(
           width: 100, height: 100, child: Image.network(Profile().user.avatar)),
     );
   }
@@ -174,7 +174,7 @@ class _CustomInputTextFormFieldState extends State<CustomInputTextFormField> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
-                      padding: EdgeInsets.symmetric(horizontal: 10),
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(12),
                           color: Colors.grey[200]),
@@ -187,7 +187,7 @@ class _CustomInputTextFormFieldState extends State<CustomInputTextFormField> {
                             widget.callback(output);
                           });
                         },
-                        decoration: InputDecoration(border: InputBorder.none),
+                        decoration: const InputDecoration(border: InputBorder.none),
                         initialValue: output,
                         style: AppConstant.textbodyfocus,
                       ),
@@ -199,14 +199,14 @@ class _CustomInputTextFormFieldState extends State<CustomInputTextFormField> {
                           widget.callback(output);
                         });
                       },
-                      child: Icon(
+                      child: const Icon(
                         Icons.save,
                         size: 30,
                       ),
                     )
                   ],
                 ),
-          Divider(
+          const Divider(
             thickness: 1,
           )
         ],
@@ -270,7 +270,7 @@ class _CustomInputDropDownState extends State<CustomInputDropDown> {
                     style: AppConstant.textbodyfocus),
               )
             : Container(
-                padding: EdgeInsets.symmetric(horizontal: 10),
+                padding: const EdgeInsets.symmetric(horizontal: 10),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12),
                     color: Colors.grey[200]),
@@ -303,7 +303,7 @@ class _CustomInputDropDownState extends State<CustomInputDropDown> {
                     });
                   },
                 )),
-        Divider(
+        const Divider(
           thickness: 1,
         )
       ],
@@ -348,7 +348,7 @@ class CustomPlaceDropDownState extends State<CustomPlaceDropDown> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: widget.width,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -369,7 +369,7 @@ class CustomPlaceDropDownState extends State<CustomPlaceDropDown> {
                       style: AppConstant.textbodyfocus),
                 )
               : Container(
-                  padding: EdgeInsets.symmetric(horizontal: 10),
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(12),
                       color: const Color.fromARGB(255, 165, 162, 162)),
@@ -402,7 +402,7 @@ class CustomPlaceDropDownState extends State<CustomPlaceDropDown> {
                       });
                     },
                   )),
-          Divider(
+          const Divider(
             thickness: 1,
           ),
         ],

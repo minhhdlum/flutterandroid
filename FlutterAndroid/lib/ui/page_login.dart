@@ -27,7 +27,7 @@ class PageLogin extends StatelessWidget {
       );
     }
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 243, 187, 209),
+      backgroundColor: const Color.fromARGB(255, 243, 187, 209),
       body: SafeArea(
           child: Center(
         child: SingleChildScrollView(
@@ -46,8 +46,8 @@ class PageLogin extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 10),
-                    Center(
-                      child: const Text(
+                    const Center(
+                      child: Text(
                         "Chúng tớ nhớ cậu lắm !",
                         style: TextStyle(
                             fontSize: 30,
@@ -108,7 +108,7 @@ class PageLogin extends StatelessWidget {
                         GestureDetector(
                           onTap: () => Navigator.of(context)
                               .popAndPushNamed(PageRegister.routename),
-                          child: Text("Đăng ký",
+                          child: const Text("Đăng ký",
                               style: TextStyle(
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,

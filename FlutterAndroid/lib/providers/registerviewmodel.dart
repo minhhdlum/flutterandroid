@@ -7,10 +7,7 @@ class RegisterViewModel with ChangeNotifier {
   bool agree = false;
   final RegisterRepo = RegisterRepository();
   String Quydinh =
-      "Khi tham gia vào ứng dụng các bạn đồng ý với các điều khản sau:\n" +
-          "1. Các thông tin của bạn sẽ được chia sẻ với các thành học\n" +
-          "2. Thông tin của bạn có thể ảnh hưởng học tập ở trường" +
-          "3. Thông tin của bạn sẽ được xoá vĩnh viễn khi có yêu cầu xoá thông tin";
+      "Khi tham gia vào ứng dụng các bạn đồng ý với các điều khản sau:\n1. Các thông tin của bạn sẽ được chia sẻ với các thành học\n2. Thông tin của bạn có thể ảnh hưởng học tập ở trường3. Thông tin của bạn sẽ được xoá vĩnh viễn khi có yêu cầu xoá thông tin";
   void setAgree(bool value) {
     agree = value;
     notifyListeners();

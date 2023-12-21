@@ -12,7 +12,7 @@ class SubPageDSHP extends StatelessWidget {
       onTap: () => MainViewModel().closeMenu(),
       child: Container(
           color: AppConstant.backgroundColor,
-          child: Center(
+          child: const Center(
             child: Text("DS Học Phần",style: TextStyle(fontSize: 25),),
           )),
     );

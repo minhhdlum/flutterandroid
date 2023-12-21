@@ -1,4 +1,3 @@
-import 'package:connection/models/profile.dart';
 import 'package:connection/models/student.dart';
 import 'package:connection/services/api_services.dart';
 

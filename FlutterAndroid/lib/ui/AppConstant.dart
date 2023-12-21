@@ -4,10 +4,10 @@ import 'package:intl/intl.dart';
 
 class AppConstant {
   static TextStyle textfancyheader = GoogleFonts.merriweather(
-      fontSize: 40, color: Color.fromARGB(149, 83, 81, 81));
+      fontSize: 40, color: const Color.fromARGB(149, 83, 81, 81));
   static TextStyle textfancyheader2 = GoogleFonts.merriweather(
       fontSize: 25,
-      color: Color.fromARGB(147, 212, 25, 25),
+      color: const Color.fromARGB(147, 212, 25, 25),
       fontWeight: FontWeight.w900);
   static TextStyle text_error = const TextStyle(
       fontSize: 20, color: Colors.red, fontStyle: FontStyle.italic);
@@ -27,8 +27,8 @@ class AppConstant {
       fontSize: 30,
       color: const Color.fromARGB(255, 101, 209, 104),
       fontWeight: FontWeight.bold);
-  static Color mainColor = Color.fromARGB(255, 101, 103, 204);
-  static Color backgroundColor = Color.fromARGB(255, 164, 218, 253);
+  static Color mainColor = const Color.fromARGB(255, 101, 103, 204);
+  static Color backgroundColor = const Color.fromARGB(255, 164, 218, 253);
   static TextStyle textbodyw = const TextStyle(
       color: Color.fromARGB(255, 255, 255, 255),
       fontSize: 16,

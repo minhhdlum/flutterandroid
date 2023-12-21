@@ -8,16 +8,13 @@ import 'package:connection/ui/page_login.dart';
 import 'package:connection/ui/SubPage_Diemdanh.dart';
 import 'package:connection/ui/SubPage_dslop.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
 
 import 'page_dklop.dart';
-import 'page_register.dart';
 import 'SubPage_dshp.dart';
 import 'SubPage_Logout.dart';
 import 'SubPage_Profile.dart';
 import 'SubPage_Home.dart';
-import 'SubPage_dslop.dart';
 
 class PageMain extends StatelessWidget {
   PageMain({super.key});
@@ -39,24 +36,28 @@ class PageMain extends StatelessWidget {
     Profile profile = Profile();
 
     if (profile.token == "") {
-      return PageLogin();
+      Navigator.of(context).pushReplacement(MaterialPageRoute(
+        builder: (context) => PageLogin(),
+      ));
+      return Container(); // Trả về một widget trống để ngăn Flutter vẽ widget hiện tại
     }
     if (profile.student.mssv == "") {
-      return PageDangkylop();
+      return const PageDangkylop();
     }
-    Widget body = SPageTrangchu();
+    Widget body = const SPageTrangchu();
     if (viewmodel.activemenu == SPageYourprofile.idpage) {
       body = SPageYourprofile();
     } else if (viewmodel.activemenu == SubPageDiemdanh.idpage) {
-      body = SubPageDiemdanh();
+      body = const SubPageDiemdanh();
     } else if (viewmodel.activemenu == SPageDSLop.idpage) {
-      body = SPageDSLop();
+      body = const SPageDSLop();
     } else if (viewmodel.activemenu == SubPageDSHP.idpage) {
-      body = SubPageDSHP();
+      body = const SubPageDSHP();
     } else if (viewmodel.activemenu == SPageDangxuat.idpage) {
-      GestureDetector(
-          onTap: () =>
-              Navigator.of(context).popAndPushNamed(PageLogin.routename));
+      profile.token = "";
+      // profile.user = [];
+      // profile.student=null
+      return PageMain();
     } else {
       menuBar.initialize(menutitle);
     }
@@ -90,7 +91,7 @@ class PageMain extends StatelessWidget {
                         menubarmodel.setOffset(details.localPosition);
                       },
                       onPanEnd: (details) {
-                        menubarmodel.setOffset(Offset(0, 0));
+                        menubarmodel.setOffset(const Offset(0, 0));
                         viewmodel.closeMenu();
                       },
                       child: Stack(
@@ -133,10 +134,10 @@ class menuitemlist extends StatelessWidget {
           width: size.width * 0.6,
           child: Center(
             child: AvatarGlow(
-              duration: Duration(milliseconds: 1500),
+              duration: const Duration(milliseconds: 1500),
               repeat: true,
               showTwoGlows: true,
-              repeatPauseDuration: Duration(milliseconds: 100),
+              repeatPauseDuration: const Duration(milliseconds: 100),
               endRadius: size.height * 0.3,
               glowColor: AppConstant.mainColor,
               child: ClipRRect(
@@ -164,7 +165,7 @@ class menuitemlist extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.only(left: 15),
             child: ListView.builder(
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               itemCount: menubaritems.length,
               itemBuilder: (context, index) {
                 return menubaritems[index];

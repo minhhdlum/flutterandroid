@@ -64,7 +64,7 @@ class PageRegister extends StatelessWidget {
                                 "Bấm vào đây ",
                                 style: AppConstant.textlink,
                               )),
-                          Text("để đăng nhập ",style: TextStyle(fontSize: 20),)
+                          const Text("để đăng nhập ",style: TextStyle(fontSize: 20),)
                         ],
                       )
                     ],

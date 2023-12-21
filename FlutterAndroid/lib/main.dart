@@ -1,6 +1,4 @@
 import 'package:connection/providers/profileviewmodel.dart';
-import 'package:connection/ui/SubPage_Profile.dart';
-import 'package:connection/ui/page_dklop.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'providers/diachimodel.dart';
@@ -67,7 +65,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         textTheme: const TextTheme(bodyMedium: TextStyle(fontSize: 16)),
         colorScheme:
-            ColorScheme.light(primary: Color.fromRGBO(233, 112, 120, 1)),
+            const ColorScheme.light(primary: Color.fromRGBO(233, 112, 120, 1)),
         useMaterial3: true,
       ),
       home: PageLogin(),
