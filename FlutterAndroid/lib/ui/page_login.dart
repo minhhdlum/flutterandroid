@@ -22,6 +22,7 @@ class PageLogin extends StatelessWidget {
       Future.delayed(
         Duration.zero,
         () {
+          viewmodel.status = 0;
           Navigator.popAndPushNamed(context, PageMain.routename);
         },
       );
