@@ -21,6 +21,27 @@ class ApiService {
     _dio = Dio(BaseOptions(responseType: ResponseType.json));
   }
 
+  Future<Response?> getCourseList() async {
+    Profile profile = Profile();
+    String api_url = "https://chocaycanh.club/api/hocphan/ds";
+    Map<String, String> headers = {
+      'Content-Type': "application/json; charset=UTF-8",
+      'Authorization': 'Bearer ' + Profile().token,
+      'Accept': 'application/json',
+    };
+
+    try {
+      final response =
+          await _dio.get(api_url, options: Options(headers: headers));
+      if (response.statusCode == 200) {
+        return response;
+      }
+    } catch (e) {
+      print(e);
+    }
+    return null;
+  }
+
   Future<Response?> dangkyLop() async {
     Profile profile = Profile();
     Map<String, String> headers = {
@@ -70,8 +91,7 @@ class ApiService {
 
   Future<List<dynamic>?> getListDistric(int id) async {
     Profile profile = Profile();
-    String apiUrl =
-        "https://chocaycanh.club/api/getjshuyen?id=$id";
+    String apiUrl = "https://chocaycanh.club/api/getjshuyen?id=$id";
     Map<String, String> headers = {
       'Content-type': "application/json; charset=UTF-8",
       'Authorization': 'Bearer ${Profile().token}',

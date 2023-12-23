@@ -36,10 +36,7 @@ class PageMain extends StatelessWidget {
     Profile profile = Profile();
 
     if (profile.token == "") {
-      Navigator.of(context).pushReplacement(MaterialPageRoute(
-        builder: (context) => PageLogin(),
-      ));
-      return Container(); // Trả về một widget trống để ngăn Flutter vẽ widget hiện tại
+      return PageLogin();
     }
     if (profile.student.mssv == "") {
       return const PageDangkylop();
@@ -52,7 +49,7 @@ class PageMain extends StatelessWidget {
     } else if (viewmodel.activemenu == SPageDSLop.idpage) {
       body = const SPageDSLop();
     } else if (viewmodel.activemenu == SubPageDSHP.idpage) {
-      body = const SubPageDSHP();
+      body = SubPageDSHP();
     } else if (viewmodel.activemenu == SPageDangxuat.idpage) {
       profile.token = "";
       // profile.user = [];
