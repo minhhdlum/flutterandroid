@@ -44,7 +44,7 @@ class PageRegister extends StatelessWidget {
                 ? Column(
                     children: [
                       const Image(
-                          image: AssetImage('assets/images/verify.gif'),
+                          image: AssetImage('assets/images/giphy.gif'),
                           width: 100),
                       Text(
                         "Đăng ký thành công",
@@ -64,7 +64,10 @@ class PageRegister extends StatelessWidget {
                                 "Bấm vào đây ",
                                 style: AppConstant.textlink,
                               )),
-                          const Text("để đăng nhập ",style: TextStyle(fontSize: 20),)
+                          const Text(
+                            "để đăng nhập ",
+                            style: TextStyle(fontSize: 20),
+                          )
                         ],
                       )
                     ],

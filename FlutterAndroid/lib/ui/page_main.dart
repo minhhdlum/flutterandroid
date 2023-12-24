@@ -51,7 +51,7 @@ class PageMain extends StatelessWidget {
     } else if (viewmodel.activemenu == SubPageDSHP.idpage) {
       body = SubPageDSHP();
     } else if (viewmodel.activemenu == SPageDangxuat.idpage) {
-      viewmodel.LogOut;
+      profile.token = "";
       return PageMain();
     } else {
       menuBar.initialize(menutitle);

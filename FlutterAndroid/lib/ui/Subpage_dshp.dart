@@ -43,15 +43,14 @@ class SubPageDSHP extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: GridView.builder(
-                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2, // Số cột trong mỗi dòng
-                        crossAxisSpacing: 16.0, // Khoảng cách giữa các cột
-                        mainAxisSpacing: 16.0, // Khoảng cách giữa các dòng
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
                       ),
                       itemCount: courses.length,
                       itemBuilder: (context, index) {
                         return Card(
-                          elevation: 4.0,
+                          elevation: 3.0,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10.0),
                           ),
@@ -76,18 +75,6 @@ class SubPageDSHP extends StatelessWidget {
                     ),
                   ),
                 );
-                // List<Course> courses = snapshot.data as List<Course>;
-                // // Hiển thị danh sách courses ở đây
-                // return ListView.builder(
-                //   itemCount: courses.length,
-                //   itemBuilder: (context, index) {
-                //     return ListTile(
-                //       title: Text(courses[index].tenhocphan),
-                //       subtitle: Text(courses[index].tengv),
-                //       // Các thuộc tính khác của Course có thể được hiển thị ở đây
-                //     );
-                //   },
-                // );
               }
             },
           ),

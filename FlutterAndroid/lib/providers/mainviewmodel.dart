@@ -1,4 +1,6 @@
 import 'package:connection/models/profile.dart';
+import 'package:connection/providers/loginviewmodel.dart';
+import 'package:connection/repositories/place_repositories.dart';
 import 'package:flutter/material.dart';
 
 class MainViewModel with ChangeNotifier {
@@ -20,11 +22,6 @@ class MainViewModel with ChangeNotifier {
 
   void closeMenu() {
     menustatus = 0;
-    notifyListeners();
-  }
-
-  void LogOut() {
-    Profile().token = "";
     notifyListeners();
   }
 

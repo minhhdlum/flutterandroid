@@ -8,22 +8,27 @@ import '../providers/loginviewmodel.dart';
 import 'custom_ctrl.dart';
 import 'page_main.dart';
 
-class PageLogin extends StatelessWidget {
+class PageLogin extends StatefulWidget {
   PageLogin({super.key});
   static String routename = '/login';
-  final _emailController = TextEditingController();
-  final _passwordController = TextEditingController();
 
   @override
+  State<PageLogin> createState() => _PageLoginState();
+}
+
+class _PageLoginState extends State<PageLogin> {
+  @override
   Widget build(BuildContext context) {
+    final _emailController = TextEditingController();
+    final _passwordController = TextEditingController();
     final viewmodel = Provider.of<LoginViewModel>(context);
     final size = MediaQuery.of(context).size;
     if (viewmodel.status == 3) {
-      viewmodel.status = 0;
       Future.delayed(
         Duration.zero,
         () {
           Navigator.popAndPushNamed(context, PageMain.routename);
+          viewmodel.status = 0;
         },
       );
     }
