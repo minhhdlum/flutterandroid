@@ -20,7 +20,7 @@ class SPageDSLop extends StatelessWidget {
         child: Scaffold(
           appBar: AppBar(
             backgroundColor: AppConstant.mainColor,
-            title: Text(
+            title: const Text(
               'Danh Sách Lớp',
               style: TextStyle(
                 color: Colors.grey,
@@ -43,7 +43,7 @@ class SPageDSLop extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: GridView.builder(
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2, // Số cột trong mỗi dòng
                         crossAxisSpacing: 16.0, // Khoảng cách giữa các cột
                         mainAxisSpacing: 16.0, // Khoảng cách giữa các dòng
@@ -58,7 +58,7 @@ class SPageDSLop extends StatelessWidget {
                           child: Center(
                             child: Text(
                               courses[index].ten,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 16.0,
                               ),

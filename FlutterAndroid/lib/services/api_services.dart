@@ -23,16 +23,16 @@ class ApiService {
 
   Future<Response?> getCourseList() async {
     Profile profile = Profile();
-    String api_url = "https://chocaycanh.club/api/hocphan/ds";
+    String apiUrl = "https://chocaycanh.club/api/hocphan/ds";
     Map<String, String> headers = {
       'Content-Type': "application/json; charset=UTF-8",
-      'Authorization': 'Bearer ' + Profile().token,
+      'Authorization': 'Bearer ${Profile().token}',
       'Accept': 'application/json',
     };
 
     try {
       final response =
-          await _dio.get(api_url, options: Options(headers: headers));
+          await _dio.get(apiUrl, options: Options(headers: headers));
       if (response.statusCode == 200) {
         return response;
       }

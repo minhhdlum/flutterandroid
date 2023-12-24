@@ -3,12 +3,11 @@ import 'package:connection/providers/mainViewModel.dart';
 import 'package:connection/repositories/course_repository.dart';
 import 'package:connection/ui/custom_ctrl.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 import 'AppConstant.dart';
 
 class SubPageDSHP extends StatelessWidget {
-  SubPageDSHP({super.key});
+  const SubPageDSHP({super.key});
   static int idpage = 4;
 
   @override
@@ -21,7 +20,7 @@ class SubPageDSHP extends StatelessWidget {
         child: Scaffold(
           appBar: AppBar(
             backgroundColor: AppConstant.mainColor,
-            title: Text(
+            title: const Text(
               'Danh Sách Học Phần',
               style: TextStyle(
                 color: Colors.black,
@@ -44,7 +43,7 @@ class SubPageDSHP extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: GridView.builder(
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2, // Số cột trong mỗi dòng
                         crossAxisSpacing: 16.0, // Khoảng cách giữa các cột
                         mainAxisSpacing: 16.0, // Khoảng cách giữa các dòng
@@ -59,14 +58,14 @@ class SubPageDSHP extends StatelessWidget {
                           child: ListTile(
                             title: Text(
                               courses[index].tenhocphan,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 16.0,
                               ),
                             ),
                             subtitle: Text(
                               'Giảng viên: ${courses[index].tengv}',
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontStyle: FontStyle.italic,
                                 color: Colors.grey,
                               ),

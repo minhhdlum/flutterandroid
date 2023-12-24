@@ -1,6 +1,5 @@
 import 'package:connection/ui/page_main.dart';
 import 'package:flutter/material.dart';
-import '../providers/mainviewmodel.dart';
 import 'AppConstant.dart';
 
 class SPageDangxuat extends StatelessWidget {
